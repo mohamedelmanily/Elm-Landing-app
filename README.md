@@ -37,7 +37,7 @@ An Angular-based frontend application built to demonstrate pixel-perfect UI impl
 
 | Metric | Estimated Time | Actual Time | Notes / Details |
 |--------|----------------|-------------|-----------------|
-| Estimation | 24 Hours | 24 Hours | Due to time constraints, the task was implemented within 24 hours. Additional time would have been used to further refine UI polish, animations, and edge-case handling. A significant portion of the effort was spent on customizing PrimeNG styles to achieve pixel-perfect alignment with the Figma design, especially for RTL layout and responsiveness. |
+| Estimation | 12–16 Hours | 24 Hours | Due to time constraints, the task was implemented within 24 hours. Additional time would have been used to further refine UI polish, animations, and edge-case handling. A significant portion of the effort was spent on customizing PrimeNG styles to achieve pixel-perfect alignment with the Figma design, especially for RTL layout and responsiveness. |
 
 ---
 
