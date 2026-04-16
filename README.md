@@ -1,59 +1,60 @@
-# ElmLandingApp
+# Elm Landing Application - Frontend Assessment Task
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+An Angular-based frontend application built to demonstrate pixel-perfect UI implementation, responsive design, and accessible user interactions in accordance with the provided Figma requirements.
 
-## Development server
+## 🚀 Live Demo & Repository
+- **Live Demo:** [https://elm-landing-app.vercel.app/](https://elm-landing-app.vercel.app/)
+- **Source Code:** [https://github.com/mohamedelmanily/Elm-Landing-app](https://github.com/mohamedelmanily/Elm-Landing-app)
 
-To start a local development server, run:
+## 🛠️ Technology Stack
+- **Framework:** Angular (v21.x Standalone Components)
+- **UI Libraries:** PrimeNG (v21.x) & Bootstrap 5 (Grid System & Utilities)
+- **Styling:** SCSS with custom Design System variables (CSS Custom Properties)
+- **Forms:** Angular Reactive Forms
 
-```bash
-ng serve
-```
+## ✨ Key Features & Achieved Objectives
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 1. Pixel-Perfect & Responsive UI
+- Meticulously matched all typography, colors, padding, and layout structures specified in the protected Figma file (`flame-group-wake-tart`).
+- Handled all responsive breakpoints (Desktop, Tablet, Mobile) fluidly. The application gracefully restructures layouts, navbar menus, and form structures without content overflow.
+- Overridden PrimeNG default native stylings via deep scoping (`::ng-deep`) to strictly adhere to the brand guidelines (e.g., seamless input group addons, custom stepper vertical/horizontal behaviors, tailored active/disabled states).
 
-## Code scaffolding
+### 2. Multi-Page Routing
+- Configured clean routing logic to handle seamless navigation between pages (`/home`, `/building-permit`, `/text-fields`).
+- Modularized feature views into dedicated Standalone Components.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 3. Interactive Components & Forms
+- Developed robust and interactive forms using **Angular Reactive Forms**.
+- Included complex dynamic validation logic spanning from required fields to multi-step wizard logic (PrimeNG Stepper handling).
+- Built functional custom PrimeNG implementations (e.g., dynamic error bound states, responsive stepper navigation, dynamic Addons layout in RTL).
 
-```bash
-ng generate component component-name
-```
+### 4. Accessibility (a11y) & Semantic HTML
+- Fully semantic HTML structure utilizing `<section>`, `<aside>`, `<nav>`, `<main>`, and `<article>` tags.
+- Maintained **Screen Reader Support** by incorporating appropriate `aria-label`, `aria-hidden`, and `role` attributes across interactive elements.
+- Guaranteed extensive **Keyboard Navigation** compatibility natively via PrimeNG and properly configured `tabindex` flows.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ⏱️ Time Estimation vs. Actual Summary
 
-```bash
-ng generate --help
-```
+| Metric | Estimated Time | Actual Time | Notes / Details |
+|--------|----------------|-------------|-----------------|
+| Estimation | 24 Hours | 24 Hours | Due to time constraints, the task was implemented within 24 hours. Additional time would have been used to further refine UI polish, animations, and edge-case handling. A significant portion of the effort was spent on customizing PrimeNG styles to achieve pixel-perfect alignment with the Figma design, especially for RTL layout and responsiveness. |
 
-## Building
+---
 
-To build the project run:
+## 💻 Development Server Setup
 
-```bash
-ng build
-```
+To deploy this project locally, ensure you have Node.js and Angular CLI installed.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   ng serve
+   ```
+4. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📦 Build for Production
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory, optimized for the best UI performance.
