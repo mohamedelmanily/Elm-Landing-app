@@ -62,3 +62,18 @@
   color: #575757;
   font-weight: 400;
 }
+
+@media (max-width: 767.98px) {
+  .stat-value {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .stat-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+}

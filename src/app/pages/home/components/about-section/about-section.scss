@@ -48,3 +48,29 @@
     outline-offset: 2px;
   }
 }
+
+@media (max-width: 991.98px) {
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .about-text {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-text {
+    font-size: 0.8125rem;
+    margin-bottom: 1rem !important;
+  }
+
+  .about-btn {
+    width: 100%;
+  }
+}

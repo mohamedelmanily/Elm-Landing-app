@@ -186,28 +186,15 @@
       <!-- Stepper Sidebar -->
       <div class="col-lg-3">
         <aside class="stepper-sidebar" aria-label="خطوات النموذج">
-          <div class="stepper">
-            @for (label of stepLabels; track label; let i = $index) {
-              <div
-                class="stepper-item"
-                [class.active]="currentStep() === i + 1"
-                [class.completed]="currentStep() > i + 1"
-                role="listitem"
-              >
-                <div class="stepper-indicator">
-                  @if (currentStep() > i + 1) {
-                    <i class="pi pi-check" aria-hidden="true"></i>
-                  } @else {
-                    <span>{{ i + 1 }}</span>
-                  }
-                </div>
-                <div class="stepper-label">{{ label }}</div>
-                @if (i < stepLabels.length - 1) {
-                  <div class="stepper-connector"></div>
-                }
-              </div>
-            }
-          </div>
+          <p-stepper [value]="currentStep()">
+            <p-step-list>
+              @for (label of stepLabels; track label; let i = $index) {
+                <p-step [value]="i + 1" [ngClass]="{'completed': currentStep() > i + 1}">
+                  {{ label }}
+                </p-step>
+              }
+            </p-step-list>
+          </p-stepper>
         </aside>
       </div>
     </div>

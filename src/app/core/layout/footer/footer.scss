@@ -168,9 +168,27 @@
 
 
 /* Responsive */
+@media (max-width: 991.98px) {
+  .footer-logos {
+    justify-content: center;
+    padding-top: 1rem;
+  }
+
+  .footer-bottom .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 767.98px) {
   .footer-main {
     padding: 2rem 0 1.5rem;
+  }
+
+  .footer-title {
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
   }
 
   .footer-bottom-content {
@@ -188,6 +206,20 @@
   }
 
   .footer-logos {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .elm-footer-logo-2 img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .accessibility-tools {
     justify-content: center;
   }
 }

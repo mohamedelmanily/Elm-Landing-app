@@ -401,7 +401,51 @@ body{
 }
 
 @media (max-width: 767.98px) {
-  .page-title { font-size: 1.5rem; }
-  .tab-btn { padding: 0.75rem 1rem; font-size: 0.8125rem; }
-  .tab-panel { padding: 1.25rem; }
+  .page-title {
+    font-size: 1.5rem;
+  }
+  
+  .page-description {
+    font-size: 0.8125rem;
+  }
+
+  .tabs-header {
+    padding-bottom: 0.2rem;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .tab-panel {
+    padding: 1.25rem 1rem;
+  }
+
+  .info-label {
+    font-size: 0.875rem;
+  }
+
+  .info-value {
+    font-size: 0.75rem;
+  }
+
+  .permit-sidebar {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .play-btn i {
+    font-size: 3rem;
+  }
+  
+  .step-text {
+    font-size: 0.8125rem;
+  }
+  
+  .downloads-badges {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

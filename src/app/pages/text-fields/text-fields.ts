@@ -8,6 +8,7 @@ import { SelectModule } from 'primeng/select';
 import { DatePickerModule } from 'primeng/datepicker';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
+import { StepperModule } from 'primeng/stepper';
 
 @Component({
   selector: 'app-text-fields',
@@ -22,6 +23,7 @@ import { ButtonModule } from 'primeng/button';
     DatePickerModule,
     InputNumberModule,
     ButtonModule,
+    StepperModule
   ],
   templateUrl: './text-fields.html',
   styleUrl: './text-fields.scss'

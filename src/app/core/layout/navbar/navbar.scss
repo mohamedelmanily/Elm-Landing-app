@@ -10,8 +10,7 @@
   border-bottom: 1px solid var(--elm-gray-200);
   transition: var(--elm-transition);
   position: relative;
-  overflow: hidden;
-  height: 64px;
+  z-index: 1000;
 
   &.scrolled {
     box-shadow: var(--elm-shadow-md);
@@ -218,10 +217,16 @@
 /* Mobile Menu */
 .mobile-menu {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background: var(--elm-white);
   border-top: 1px solid var(--elm-gray-200);
   padding: 1rem 1.5rem 1.5rem;
+  box-shadow: var(--elm-shadow-md);
   animation: slideDown 0.3s ease;
+  z-index: 999;
 
   @media (max-width: 991.98px) {
     display: block;
@@ -273,5 +278,11 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-container {
+    padding: 0 1rem;
   }
 }

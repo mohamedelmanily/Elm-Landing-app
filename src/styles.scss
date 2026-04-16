@@ -133,6 +133,10 @@ p {
    ============================================ */
 .section-padding {
   padding: var(--elm-section-padding);
+
+  @media (max-width: 767.98px) {
+    padding: 2.5rem 0;
+  }
 }
 
 .section-title {

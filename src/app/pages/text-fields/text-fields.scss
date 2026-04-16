@@ -60,80 +60,104 @@
   top: 80px;
 }
 
-.stepper {
-  display: flex;
-  flex-direction: column;
-}
-
-.stepper-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  position: relative;
-  padding-bottom: 2rem;
-
-  &:last-child {
-    padding-bottom: 0;
-
-    .stepper-connector { display: none; }
-  }
-}
-
-.stepper-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--elm-radius-full);
-  background: var(--elm-gray-200);
-  color: var(--elm-gray-600);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  flex-shrink: 0;
-  transition: var(--elm-transition);
-  z-index: 1;
-
-  .active & {
-    background: var(--elm-primary);
-    color: var(--elm-white);
-    box-shadow: 0 0 0 4px var(--elm-primary-50);
+:host ::ng-deep .stepper-sidebar {
+  p-stepper {
+    display: block;
+    width: 100%;
   }
 
-  .completed & {
-    background: var(--elm-primary);
-    color: var(--elm-white);
-
-    i { font-size: 0.75rem; }
-  }
-}
-
-.stepper-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--elm-gray-500);
-  transition: var(--elm-transition-fast);
-
-  .active & {
-    color: var(--elm-primary);
-    font-weight: 700;
+  .p-steplist {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
   }
 
-  .completed & {
-    color: var(--elm-primary);
+  .p-step {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+
+    &-header {
+      background: transparent;
+      border: none;
+      padding: 0;
+      gap: 0.75rem;
+      flex-direction: row;
+      z-index: 1; /* Keep above line */
+    }
+
+    &-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--elm-gray-200);
+      color: var(--elm-gray-600);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      transition: var(--elm-transition);
+    }
+
+    &-title {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--elm-gray-500);
+      font-family: var(--elm-font-family);
+      margin: 0;
+    }
+
+    &.p-step-active {
+      .p-step-number {
+        background: var(--elm-primary);
+        color: var(--elm-white);
+        box-shadow: 0 0 0 4px var(--elm-primary-50);
+      }
+      .p-step-title {
+        color: var(--elm-primary);
+        font-weight: 700;
+      }
+    }
+
+    /* Completed state */
+    &.completed {
+      .p-step-number {
+        background: var(--elm-primary);
+        color: var(--elm-white);
+
+        span { display: none; } /* hide default value text */
+
+        &::after {
+          content: "\e909"; /* pi-check icon */
+          font-family: 'primeicons';
+          font-size: 0.8rem;
+        }
+      }
+
+      .p-step-title {
+        color: var(--elm-primary);
+      }
+
+      .p-stepper-separator {
+        background: var(--elm-primary);
+      }
+    }
   }
-}
 
-.stepper-connector {
-  position: absolute;
-  right: 17px;
-  top: 40px;
-  width: 2px;
-  height: calc(100% - 40px);
-  background: var(--elm-gray-200);
-
-  .completed & {
-    background: var(--elm-primary);
+  .p-stepper-separator {
+    display: block;
+    position: absolute;
+    right: 25px; /* Middle of the 36px circle */
+    top: 45px; /* Start right under the circle */
+    width: 2px;
+    height: calc(100% - 36px + 1.5rem); /* span the height and bridge the gap */
+    background: var(--elm-gray-200);
+    z-index: 0;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -195,8 +219,7 @@
   --p-button-secondary-color: #1C1C1C;
 
   .p-inputtext,
-  .p-select,
-  .p-datepicker {
+  .p-select {
     width: 100%;
     font-family: var(--elm-font-family);
   }
@@ -332,21 +355,50 @@
     margin-bottom: 1.5rem;
   }
 
-  .stepper {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-  }
+  :host ::ng-deep .stepper-sidebar {
+    .p-steplist {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: nowrap; /* Prevent wrapping so lines connect cleanly */
+      gap: 0; 
+      align-items: flex-start;
+      width: 100%;
+    }
 
-  .stepper-item {
-    padding-bottom: 0;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    .p-step {
+      width: auto;
+      flex: 1; /* evenly distribute */
+      position: relative;
 
-  .stepper-connector {
-    display: none;
+      &-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        background: transparent;
+        z-index: 2; /* keep above horizontal line */
+        margin: 0 auto;
+      }
+
+      &-title {
+        text-align: center;
+      }
+    }
+
+    /* Target the connecting line on mobile */
+    .p-stepper-separator {
+      display: block;
+      position: absolute;
+      top: 25px; /* Center of the 36x36px circle */
+      right: 50%; /* Start line from center of current circle */
+      width: 100%; /* Bridge straight to the next circle */
+      height: 2px;
+      background: var(--elm-gray-200);
+      z-index: 1; /* Behind the circles */
+    }
+
+    /* Hide the line on the last step just in case PrimeNG renders it */
+    .p-step:last-child .p-stepper-separator {
+      display: none;
+    }
   }
 }
 
