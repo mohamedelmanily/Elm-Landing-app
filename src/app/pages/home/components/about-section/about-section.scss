@@ -67,10 +67,32 @@
 
   .about-text {
     font-size: 0.8125rem;
-    margin-bottom: 1rem !important;
   }
+}
 
-  .about-btn {
-    width: 100%;
+/* Mobile Layout Overrides directly bridging Bootstrap with CSS Grid */
+@media (max-width: 991.98px) {
+  .about-grid {
+    display: grid !important; /* Override .row flex */
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .about-content-left {
+    display: contents;
+  }
+  .section-title {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 !important;
+  }
+  .about-action-btn {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .about-text {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0.5rem;
   }
 }
