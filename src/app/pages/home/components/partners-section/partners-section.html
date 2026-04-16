@@ -1,0 +1,44 @@
+<section class="partners" aria-label="الشركاء">
+  <div class="container">
+    <div class="partners-header">
+      <h2 class="section-title">قسم الشركاء</h2>
+    </div>
+
+    <div class="partners-slider-wrapper">
+      <!-- Previous Arrow (RTL: left = next direction visually, but we label it "previous") -->
+      <button
+        class="slider-arrow slider-arrow--prev"
+        (click)="prev()"
+        [disabled]="!canPrev()"
+        aria-label="السابق"
+        type="button"
+      >
+        <i class="pi pi-chevron-right" aria-hidden="true"></i>
+      </button>
+
+      <!-- Partners Track -->
+      <div class="partners-track">
+        @for (partner of visiblePartners(); track $index) {
+          <div class="partner-item">
+            <img
+              [src]="partner.logo"
+              class="partner-logo-img"
+              loading="lazy"
+            />
+          </div>
+        }
+      </div>
+
+      <!-- Next Arrow -->
+      <button
+        class="slider-arrow slider-arrow--next"
+        (click)="next()"
+        [disabled]="!canNext()"
+        aria-label="التالي"
+        type="button"
+      >
+        <i class="pi pi-chevron-left" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,144 @@
+:host {
+  display: block;
+}
+
+/* ===== Card Wrapper ===== */
+.card-wrapper {
+  background: var(--elm-white);
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: var(--elm-transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-color: #D1D5DB;
+  }
+}
+
+/* ===== Icon ===== */
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1rem;
+  margin-inline-end: auto; /* pushes icon to the right in RTL */
+  background-color: #F3FCF6;
+  border-radius: 50%;
+
+  img, svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+}
+
+/* ===== Typography ===== */
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1C1C1C;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.card-desc {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+/* ===== Tags ===== */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: var(--elm-font-family);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Tag variants — flat selectors (no BEM nesting) for Angular encapsulation */
+.tag-outlined {
+  background: transparent;
+  color: #6B7280;
+  border: 1px solid #D2D6DB;
+}
+
+.tag-gray {
+  background: #F3F4F6;
+  color: #374151;
+  border: 1px solid transparent;
+}
+
+.tag-green {
+  background: var(--elm-primary);
+  color: var(--elm-white);
+  border: 1px solid transparent;
+}
+
+/* ===== Action Buttons ===== */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  font-family: var(--elm-font-family);
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--elm-transition-fast);
+  white-space: nowrap;
+  border: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--elm-primary);
+    outline-offset: 2px;
+  }
+}
+
+.card-btn-primary {
+  background: var(--elm-primary);
+  color: var(--elm-white);
+
+  &:hover {
+    background: var(--elm-primary-dark);
+    color: var(--elm-white);
+  }
+}
+
+.card-btn-outline {
+  background: transparent;
+  color: #1C1C1C;
+  border: 1.5px solid #D2D6DB;
+
+  &:hover {
+    background: #F3F4F6;
+  }
+}

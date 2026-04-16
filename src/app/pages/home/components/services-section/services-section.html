@@ -1,0 +1,32 @@
+<section class="services section-padding" id="services" aria-labelledby="services-title">
+  <div class="container">
+    <div class="services-header">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 id="services-title" class="section-title">قسم الخدمات</h2>
+        <button class="btn-elm-secondry" type="button">عرض الكل</button>
+      </div>
+      <p class="section-subtitle">
+        هنا يمكنك إضافة وصف مختصر حول الغرض من البوابة متبوعًا بزر الحث على اتخاذ إجراء وصورة أو رسم توضيحي على الجانب الأيسر.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      @for (service of services(); track service.id) {
+        <app-service-card [data]="service" />
+      }
+    </div>
+
+    <div class="services-dots" role="tablist" aria-label="التنقل بين الخدمات">
+      @for (i of [0, 1, 2]; track i) {
+        <button
+          class="dot"
+          [class.active]="activeSlide() === i"
+          (click)="activeSlide.set(i)"
+          [attr.aria-label]="'مجموعة الخدمات ' + (i + 1)"
+          role="tab"
+          type="button"
+        ></button>
+      }
+    </div>
+  </div>
+</section>

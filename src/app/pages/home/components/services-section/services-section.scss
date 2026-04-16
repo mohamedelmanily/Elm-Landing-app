@@ -1,0 +1,52 @@
+:host { display: block; }
+
+.services {
+  background: var(--elm-white);
+}
+
+.services-header {
+  margin-bottom: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 991.98px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 575.98px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 1rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--elm-gray-300);
+  cursor: pointer;
+  transition: var(--elm-transition);
+  padding: 0;
+
+  &.active {
+    background: var(--elm-primary);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  &:hover:not(.active) {
+    background: var(--elm-gray-400);
+  }
+}

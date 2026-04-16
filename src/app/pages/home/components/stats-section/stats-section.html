@@ -1,0 +1,15 @@
+<section class="stats section-padding" aria-label="الإحصائيات">
+  <div class="container">
+    <div class="stats-grid">
+      @for (stat of stats(); track stat.label) {
+        <div class="stat-card" role="group" [attr.aria-label]="stat.value + ' ' + stat.label">
+          <div class="stat-icon">
+            <i [class]="stat.icon" aria-hidden="true"></i>
+          </div>
+          <div class="stat-value">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

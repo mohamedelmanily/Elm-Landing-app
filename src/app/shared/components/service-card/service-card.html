@@ -1,0 +1,44 @@
+<article class="card-wrapper" [attr.aria-label]="data.title">
+  <!-- Icon -->
+  <div class="card-icon">
+    @if (data.icon) {
+      <img [src]="data.icon" [alt]="data.title + ' icon'" width="24" height="24" />
+    }
+  </div>
+
+  <!-- Title -->
+  <h3 class="card-title">{{ data.title }}</h3>
+
+  <!-- Description -->
+  <p class="card-desc">{{ data.description }}</p>
+
+  <!-- Tags -->
+  @if (data.tags && data.tags.length) {
+    <div class="card-tags">
+      @for (tag of data.tags; track $index) {
+        <span
+          class="tag"
+          [class.tag-outlined]="tag.variant === 'outlined'"
+          [class.tag-gray]="tag.variant === 'gray'"
+          [class.tag-green]="tag.variant === 'green'"
+        >{{ tag.name }}</span>
+      }
+    </div>
+  }
+
+  <!-- Actions -->
+  @if (showActions) {
+    <div class="card-actions">
+      @if (data.secondaryAction) {
+        <a [href]="data.secondaryLink || '#'" class="card-btn card-btn-outline">
+          {{ data.secondaryAction }}
+        </a>
+      }
+      @if (data.primaryAction) {
+        <a [href]="data.primaryLink || '#'" class="card-btn card-btn-primary">
+          {{ data.primaryAction }}
+        </a>
+      }
+    </div>
+  }
+</article>

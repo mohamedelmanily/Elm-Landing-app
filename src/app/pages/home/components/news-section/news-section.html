@@ -1,0 +1,32 @@
+<section class="news section-padding" aria-labelledby="news-title">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2 id="news-title" class="section-title">قسم الأخبار والمقالات</h2>
+      <button class="btn-elm-secondry" type="button">عرض الكل</button>
+    </div>
+    <div class="news-header">
+      <p class="section-subtitle">
+        هنا يمكنك الاطلاع على آخر الأخبار والمقالات المتعلقة بخدمات البوابة.
+      </p>
+    </div>
+
+    <div class="news-grid">
+      @for (article of articles(); track article.title) {
+        <article class="news-card">
+          <div class="news-image">
+            <div class="news-image-placeholder">
+              <img src="/assets/images/flag.jpg" alt="صورة الخبر">
+            </div>
+          </div>
+          <div class="news-content">
+            <h3 class="news-title">{{ article.title }}</h3>
+            <p class="news-excerpt">{{ article.excerpt }}</p>
+            <button class="btn-elm-primary">
+              <span>قراءة المزيد</span>
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

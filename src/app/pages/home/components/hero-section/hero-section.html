@@ -1,0 +1,30 @@
+<section class="hero" aria-label="القسم الرئيسي">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">القسم الرئيسي</h1>
+      <p class="hero-description">
+        هنا يمكنك إضافة وصف مختصر حول الغرض من البوابة متبوعًا بزر الحث على اتخاذ إجراء وصورة أو رسم توضيحي على الجانب الأيسر. 
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-elm-primary hero-btn">
+          <span>إجراء رئيسي</span>
+          <i class="pi pi-arrow-left" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="hero-dots" role="tablist" aria-label="التنقل بين الشرائح">
+      @for (i of [0, 1, 2,3]; track i) {
+        <button
+          class="dot"
+          [class.active]="activeSlide() === i"
+          (click)="setSlide(i)"
+          [attr.aria-label]="'الشريحة ' + (i + 1)"
+          [attr.aria-selected]="activeSlide() === i"
+          role="tab"
+          type="button"
+        ></button>
+      }
+    </div>
+  </div>
+</section>

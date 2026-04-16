@@ -1,0 +1,120 @@
+<footer class="footer" role="contentinfo" aria-label="تذييل الصفحة">
+  <!-- Main Footer Content -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Summary Column -->
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">ملخص</h3>
+          <hr>
+          <ul class="footer-links" role="list">
+            @for (link of summaryLinks; track link.label) {
+              <li>
+                <a [href]="link.href" class="footer-link">{{ link.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <!-- Important Links Column -->
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">روابط مهمة</h3>
+          <hr>
+          <ul class="footer-links" role="list">
+            @for (link of importantLinks; track link.label) {
+              <li>
+                <a [href]="link.href" class="footer-link">{{ link.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <!-- Support Column -->
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">الاتصال والدعم</h3>
+          <hr>
+          <ul class="footer-links" role="list">
+            @for (link of supportLinks; track link.label) {
+              <li>
+                <a [href]="link.href" class="footer-link">{{ link.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <!-- Social & Accessibility Column -->
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-title">تابعنا على</h3>
+          <hr>
+          <div class="social-links">
+            @for (social of socialLinks; track social.label) {
+              <a
+              [href]="social.href"
+              class="social-icon"
+              [attr.aria-label]="social.label"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              @if (social.isX) {
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              } @else {
+                <i [class]="social.icon" aria-hidden="true"></i>
+              }
+            </a>
+            }
+          </div>
+          
+          <h3 class="footer-title mt-4">أدوات الإتاحة والوصول</h3>
+          <hr>
+          <div class="accessibility-tools">
+            <button class="a11y-btn" aria-label="تكبير الخط" type="button">
+              <i class="pi pi-search-plus" aria-hidden="true"></i>
+            </button>
+            <button class="a11y-btn" aria-label="تصغير الخط" type="button">
+              <i class="pi pi-search-minus" aria-hidden="true"></i>
+            </button>
+            <button class="a11y-btn" aria-label="تباين عالي" type="button">
+              <i class="pi pi-sun" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="footer-bottom-content">
+        <div class="footer-bottom-right">
+          <div class="footer-meta-links">
+            <a href="#" class="meta-link">خريطة الموقع</a>
+            <span class="meta-separator">|</span>
+            <a href="#" class="meta-link">RSS</a>
+            <span class="meta-separator">|</span>
+            <a href="#" class="meta-link">تطبيق الجوال</a>
+          </div>
+        </div>
+        <div class="footer-bottom-left">
+          <p class="copyright">
+            جميع الحقوق محفوظة لهيئة الحكومة الرقمية © {{ currentYear }}
+          </p>
+          <p class="dev-info">
+            تم تطويره وصيانته بواسطة [أدخل اسم الجهة]
+          </p>
+          <p class="last-update">تاريخ آخر تعديل: 04/12/2020</p>
+        </div>
+      </div>
+      <div class="footer-logos">
+        <div class="elm-footer-logo">
+          <img src="/assets/icons/elm-logo-white.svg" alt="Elm Logo">
+        </div>
+        <div class="elm-footer-logo-2">
+         <img src="/assets/images/footer.png" alt="Elm second Logo">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

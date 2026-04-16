@@ -1,0 +1,261 @@
+<!-- Breadcrumb -->
+<nav class="breadcrumb-section" aria-label="مسار التنقل">
+  <div class="container">
+    <ol class="breadcrumb-list">
+      <li><a routerLink="/home" class="breadcrumb-link">الرئيسية</a></li>
+      <li class="separator"><i class="pi pi-chevron-left" aria-hidden="true"></i></li>
+      <li aria-current="page"><span class="breadcrumb-current">رخصة بناء</span></li>
+    </ol>
+  </div>
+</nav>
+<!-- Page Header -->
+<!-- <section class="permit-header" aria-labelledby="permit-title">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 id="permit-title" class="page-title">رخصة بناء</h1>
+      <button class="btn-elm-primary">بدء الخدمة</button>
+    </div>
+      <p class="page-description">
+        خدمة إلكترونية تقدمها وزارة الشؤون البلدية والقروية والإسكان تمكنك من تقديم طلب
+        إصدار رخصة بناء جديدة. يتم تقديم الطلب عبر منصة بلدي وتتولى البلدية المختصة
+        دراسة الطلب وإصدار الرخصة.
+      </p>
+    </div>
+</section> -->
+
+<!-- Main Content -->
+<section class="permit-content section-padding">
+  <div class="container">
+    <div class="row">
+      <!-- Content Area -->
+    <div class="col-lg-8">
+          <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+              <h1 id="permit-title" class="page-title">رخصة بناء</h1>
+              <button class="btn-elm-primary">بدء الخدمة</button>
+            </div>
+        <p class="page-description">
+          خدمة إلكترونية تقدمها وزارة الشؤون البلدية والقروية والإسكان تمكنك من تقديم طلب
+          إصدار رخصة بناء جديدة. يتم تقديم الطلب عبر منصة بلدي وتتولى البلدية المختصة
+          دراسة الطلب وإصدار الرخصة.
+        </p>
+    </div>
+        <!-- Tabs -->
+        <div class="permit-tabs">
+          <div class="tabs-header" role="tablist">
+            <button
+              class="tab-btn"
+              [class.active]="activeTab() === 0"
+              (click)="activeTab.set(0)"
+              role="tab"
+              [attr.aria-selected]="activeTab() === 0"
+              id="tab-steps"
+              aria-controls="panel-steps"
+              type="button"
+            >
+              <i class="pi pi-list" aria-hidden="true"></i>
+              الخطوات
+            </button>
+            <button
+              class="tab-btn"
+              [class.active]="activeTab() === 1"
+              (click)="activeTab.set(1)"
+              role="tab"
+              [attr.aria-selected]="activeTab() === 1"
+              id="tab-conditions"
+              aria-controls="panel-conditions"
+              type="button"
+            >
+              <i class="pi pi-check-circle" aria-hidden="true"></i>
+              شروط الاستخدام
+            </button>
+            <button
+              class="tab-btn"
+              [class.active]="activeTab() === 2"
+              (click)="activeTab.set(2)"
+              role="tab"
+              [attr.aria-selected]="activeTab() === 2"
+              id="tab-docs"
+              aria-controls="panel-docs"
+              type="button"
+            >
+              <i class="pi pi-file" aria-hidden="true"></i>
+              المستندات المطلوبة
+            </button>
+          </div>
+
+          <!-- Steps Tab -->
+          @if (activeTab() === 0) {
+            <div class="tab-panel" id="panel-steps" role="tabpanel" aria-labelledby="tab-steps">
+              <!-- Video Section -->
+              <div class="video-section">
+                <div class="video-placeholder">
+                  <button class="play-btn" aria-label="تشغيل الفيديو التوضيحي" type="button">
+                    <i class="pi pi-play-circle" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <h3 class="steps-title">خطوات الحصول على الرخصة</h3>
+              <p class="steps-subtitle">
+                قم باتباع الخطوات التالية للحصول على رخصة البناء. يمكن الوصول إلى البوابة الوطنية للتسجيل الموحد عبر منصة بلدي.
+              </p>
+
+              <ol class="steps-list">
+                @for (step of steps; track step; let i = $index) {
+                  <li class="step-item">
+                    <div class="step-number">{{ i + 1 }}-</div>
+                    <div class="step-text">{{ step }}</div>
+                  </li>
+                }
+              </ol>
+
+
+            </div>
+          }
+
+          <!-- Conditions Tab -->
+          @if (activeTab() === 1) {
+            <div class="tab-panel" id="panel-conditions" role="tabpanel" aria-labelledby="tab-conditions">
+              <h3 class="steps-title">شروط الاستخدام</h3>
+              <ul class="conditions-list">
+                @for (condition of conditions; track condition) {
+                  <li class="condition-item">
+                    <i class="pi pi-check" aria-hidden="true"></i>
+                    <span>{{ condition }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+
+          <!-- Documents Tab -->
+          @if (activeTab() === 2) {
+            <div class="tab-panel" id="panel-docs" role="tabpanel" aria-labelledby="tab-docs">
+              <h3 class="steps-title">المستندات المطلوبة</h3>
+              <ul class="docs-list">
+                @for (doc of requiredDocs; track doc) {
+                  <li class="doc-item">
+                    <i class="pi pi-file" aria-hidden="true"></i>
+                    <span>{{ doc }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <aside class="permit-sidebar" aria-label="معلومات الخدمة">
+          @for (info of serviceInfo; track info.label) {
+            <div class="info-card">
+              <div class="info-header">
+                <i [class]="info.icon" aria-hidden="true"></i>
+                <h4 class="info-label">{{ info.label }}</h4>
+              </div>
+              <p class="info-value">{{ info.value }}</p>
+            </div>
+          }
+
+          <!-- Payment Channels -->
+          <div class="info-card">
+            <h4 class="info-label payment-title">قنوات الدفع</h4>
+            <div class="payment-logos">
+              <div class="payment-logo" aria-label="STC Pay">
+                <img src="assets/images/Payment method icon.png" alt="STC Pay">
+              </div>
+              <div class="payment-logo" aria-label="مدى">
+                <img src="assets/images/Payment method icon2.png" alt="مدى">
+              </div>
+            </div>
+          </div>
+
+          <hr class="sidebar-divider">
+
+          <!-- FAQ -->
+          <div class="info-card">
+            <div class="info-header">
+              <i class="pi pi-question-circle" aria-hidden="true"></i>
+              <h4 class="info-label">الاسئلة الشائعة</h4>
+            </div>
+            <a href="#" class="info-link">Ministry-FAQ's-page</a>
+          </div>
+
+          <!-- Phone -->
+          <div class="info-card">
+            <div class="info-header">
+              <i class="pi pi-phone" aria-hidden="true"></i>
+              <h4 class="info-label">الهاتف</h4>
+            </div>
+            <p class="info-value">9200343222</p>
+          </div>
+
+          <!-- Email -->
+          <div class="info-card">
+            <div class="info-header">
+              <i class="pi pi-envelope" aria-hidden="true"></i>
+              <h4 class="info-label">البريد الالكتروني</h4>
+            </div>
+            <a href="mailto:help@company.sa" class="info-link">help&#64;company.sa</a>
+          </div>
+
+          <!-- User Guide Download -->
+          <div class="info-card">
+            <div class="info-header">
+              <i class="pi pi-download" aria-hidden="true"></i>
+              <h4 class="info-label">تحميل دليل المستخدم</h4>
+            </div>
+            <a href="#" class="info-link">
+              <i class="pi pi-file-pdf" aria-hidden="true"></i>
+              تحميل الدليل
+            </a>
+          </div>
+                        <!-- App Downloads -->
+              <div class="app-downloads">
+                <h4 class="downloads-title">تطبيقات الجوال</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a href="#" class="store-badge" aria-label="تحميل من Google Play">
+                      <img src="assets/images/google.png" alt="App Store">
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="#" class="store-badge" aria-label="تحميل من AppGallery">
+                      <img src="assets/images/apple.png" alt="App Store">
+                    </a>
+                  </div>
+                  <a href="#" class="store-badge" aria-label="تحميل من App Store">
+                    <img src="assets/images/huawei.png" alt="App Store">
+                  </a>
+                </div>
+              </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+      <div class="row">
+      <!-- Content Area -->
+       <div class="col-lg-12">
+          <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+              <h1 id="permit-title" class="page-title">خدمات ذات صلة</h1>
+              <button class="btn-elm-primary">عرض الكل</button>
+            </div>
+            <p class="page-description">
+              خدمة إلكترونية تقدمها وزارة الشؤون البلدية والقروية والإسكان تمكنك من تقديم طلب
+              إصدار رخصة بناء جديدة. يتم تقديم الطلب عبر منصة بلدي وتتولى البلدية المختصة
+              دراسة الطلب وإصدار الرخصة.
+            </p>
+          </div>
+        </div>
+      </div>
+          <div class="services-grid">
+      @for (service of services(); track service.id) {
+        <app-service-card [data]="service" />
+      }
+    </div>
+</section>

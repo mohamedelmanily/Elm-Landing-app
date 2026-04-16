@@ -1,0 +1,141 @@
+:host { display: block; }
+
+.partners {
+  background: var(--elm-gray-50);
+  padding: 2.5rem 0 3rem;
+}
+
+.partners-header {
+  margin-bottom: 1.5rem;
+}
+
+/* Slider wrapper */
+.partners-slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Arrow buttons */
+.slider-arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--elm-radius-full);
+  border: 1px solid #D2D6DB;
+  background: var(--elm-white);
+  color: #6B7280;
+  cursor: pointer;
+  transition: var(--elm-transition-fast);
+
+  i {
+    font-size: 0.7rem;
+  }
+
+  &:hover:not(:disabled) {
+    background: var(--elm-primary);
+    border-color: var(--elm-primary);
+    color: var(--elm-white);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--elm-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Partners track */
+.partners-track {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+/* Individual partner card */
+.partner-card {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  transition: var(--elm-transition);
+
+  &:hover {
+    .partner-logo-box {
+      border-color: var(--elm-primary);
+      box-shadow: 0 2px 8px rgba(26, 86, 50, 0.08);
+    }
+  }
+}
+
+/* Bordered box around the logo */
+.partner-logo-box {
+  width: 100px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  background: var(--elm-white);
+  padding: 0.75rem;
+  transition: var(--elm-transition-fast);
+}
+
+.partner-logo-img {
+  max-width: 98px;
+  max-height: 100px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: var(--elm-transition);
+
+  .partner-card:hover & {
+    opacity: 1;
+  }
+}
+
+/* Partner name below */
+.partner-name {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6B7280;
+  font-family: var(--elm-font-family);
+  white-space: nowrap;
+}
+.partner-item{
+border: 1px solid var(--elm-gray-200);
+border-radius: 3px;
+}
+
+@media (max-width: 767.98px) {
+  .partners-track {
+    gap: 0.75rem;
+  }
+
+  .partner-logo-box {
+    width: 72px;
+    height: 60px;
+    padding: 0.5rem;
+  }
+
+  .partner-logo-img {
+    max-width: 36px;
+    max-height: 36px;
+  }
+
+  .partner-name {
+    font-size: 0.6875rem;
+  }
+}
