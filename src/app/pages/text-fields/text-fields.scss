@@ -126,14 +126,18 @@
     &.completed {
       .p-step-number {
         background: var(--elm-primary);
-        color: var(--elm-white);
-
-        span { display: none; } /* hide default value text */
+        color: transparent; /* Hide default value text */
+        position: relative;
 
         &::after {
           content: "\e909"; /* pi-check icon */
           font-family: 'primeicons';
           font-size: 0.8rem;
+          color: var(--elm-white); /* Show white icon */
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
       }
 
@@ -185,7 +189,8 @@
   &.has-error {
     input,
     textarea,
-    :host ::ng-deep .p-inputtext {
+    :host ::ng-deep .p-inputtext,
+    :host ::ng-deep .p-inputgroup-addon {
       border-color: var(--elm-danger) !important;
     }
   }
@@ -218,6 +223,9 @@
   --p-button-secondary-border-color: #D2D6DB;
   --p-button-secondary-color: #1C1C1C;
 
+  p-iconfield,
+  .p-inputgroup,
+  .p-iconfield,
   .p-inputtext,
   .p-select {
     width: 100%;
@@ -228,6 +236,47 @@
     padding: 0.6rem 0.85rem;
     font-size: 0.875rem;
     border-radius: var(--elm-radius-md);
+  }
+
+  .p-inputgroup {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+
+    .p-inputgroup-addon {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      color: #64748B;
+      padding: 0.5rem 0.75rem;
+      min-width: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      flex-shrink: 0;
+    }
+
+    .p-inputtext,
+    input {
+      flex: 1 1 auto;
+      width: 1%;
+    }
+
+    /* RTL specific border stitching */
+    > :first-child {
+      border-top-right-radius: var(--elm-radius-md) !important;
+      border-bottom-right-radius: var(--elm-radius-md) !important;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      border-left: 0 !important;
+    }
+
+    > :last-child {
+      border-top-left-radius: var(--elm-radius-md) !important;
+      border-bottom-left-radius: var(--elm-radius-md) !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
   }
 
   /* Disabled input: gray background, darker text */

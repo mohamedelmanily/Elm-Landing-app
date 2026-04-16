@@ -5,10 +5,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { SelectModule } from 'primeng/select';
-import { DatePickerModule } from 'primeng/datepicker';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { StepperModule } from 'primeng/stepper';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @Component({
   selector: 'app-text-fields',
@@ -20,10 +23,13 @@ import { StepperModule } from 'primeng/stepper';
     InputTextModule,
     TextareaModule,
     SelectModule,
-    DatePickerModule,
     InputNumberModule,
     ButtonModule,
-    StepperModule
+    StepperModule,
+    IconFieldModule,
+    InputIconModule,
+    InputGroupModule,
+    InputGroupAddonModule
   ],
   templateUrl: './text-fields.html',
   styleUrl: './text-fields.scss'
@@ -57,11 +63,11 @@ export default class TextFields {
       opt2: [''],
       req2: ['', Validators.required],
       // Row 3 - with values
-      opt3: ['نص'],
-      req3: ['نص', Validators.required],
+      opt3: [''],
+      req3: ['', Validators.required],
       // Row 4 - with values
-      opt4: ['نص'],
-      req4: ['نص', Validators.required],
+      opt4: [''],
+      req4: ['', Validators.required],
       // Row 5 - with helper text
       opt5: [''],
       req5: ['', Validators.required],
@@ -77,6 +83,7 @@ export default class TextFields {
   nextStep(): void {
     if (this.currentStep() < this.totalSteps) {
       this.currentStep.update(v => v + 1);
+      this.form.markAllAsTouched();
     }
   }
 
