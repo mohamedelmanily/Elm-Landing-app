@@ -7,6 +7,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { SelectModule } from 'primeng/select';
 import { DatePickerModule } from 'primeng/datepicker';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-text-fields',
@@ -19,7 +20,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     TextareaModule,
     SelectModule,
     DatePickerModule,
-    InputNumberModule
+    InputNumberModule,
+    ButtonModule,
   ],
   templateUrl: './text-fields.html',
   styleUrl: './text-fields.scss'
@@ -65,8 +67,8 @@ export default class TextFields {
       opt6: [''],
       req6: ['', Validators.required],
       // Row 7
-      opt7: [''],
-      req7: ['', Validators.required],
+      opt7: [{ value: '', disabled: true }],
+      req7: [{ value: '', disabled: true }],
     });
   }
 
