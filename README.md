@@ -15,7 +15,7 @@ An Angular-based frontend application built to demonstrate pixel-perfect UI impl
 ## ✨ Key Features & Achieved Objectives
 
 ### 1. Pixel-Perfect & Responsive UI
-- Meticulously matched all typography, colors, padding, and layout structures specified in the protected Figma file (`flame-group-wake-tart`).
+- Meticulously matched all typography, colors, padding, and layout structures specified in the protected Figma file.
 - Handled all responsive breakpoints (Desktop, Tablet, Mobile) fluidly. The application gracefully restructures layouts, navbar menus, and form structures without content overflow.
 - Overridden PrimeNG default native stylings via deep scoping (`::ng-deep`) to strictly adhere to the brand guidelines (e.g., seamless input group addons, custom stepper vertical/horizontal behaviors, tailored active/disabled states).
 
